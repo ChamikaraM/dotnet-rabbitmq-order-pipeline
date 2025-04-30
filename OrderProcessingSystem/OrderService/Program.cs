@@ -2,6 +2,7 @@
 
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using OrderService;
 
 var builder = WebApplication.CreateBuilder(args);
 

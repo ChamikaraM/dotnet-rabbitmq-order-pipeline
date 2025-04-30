@@ -1,8 +1,7 @@
 ﻿using Contracts.Events;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.Contracts;
+using static OrderService.OrderDbContext;
 
 namespace OrderService.Controllers;
 
@@ -26,7 +25,7 @@ public class OrdersController : ControllerBase
         {
             OrderId = Guid.NewGuid(),
             CustomerEmail = request.CustomerEmail,
-            Items = request.Items.Select(i => new OrderItem
+            Items = request.Items.Select(i => new OrderDbContext.OrderItem
             {
                 ProductId = i.ProductId,
                 Quantity = i.Quantity
